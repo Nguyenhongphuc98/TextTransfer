@@ -1,0 +1,9 @@
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\bin\Debug\TextSearchTool.exe.config
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\bin\Debug\TextSearchTool.exe
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\bin\Debug\TextSearchTool.pdb
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.csprojAssemblyReference.cache
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.frmMain.resources
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.Properties.Resources.resources
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.csproj.GenerateResource.cache
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.exe
+C:\Users\XuanTung\Documents\Visual Projects\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.pdb
