@@ -51,7 +51,7 @@
             this.grbMode = new System.Windows.Forms.GroupBox();
             this.prgBar = new System.Windows.Forms.ProgressBar();
             this.lbPercent = new System.Windows.Forms.Label();
-            this.lbProcessing = new System.Windows.Forms.Label();
+            this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.grbExtension.SuspendLayout();
             this.grbFileAndFolder.SuspendLayout();
             this.grbMode.SuspendLayout();
@@ -61,9 +61,9 @@
             // 
             this.rdEffect.AutoSize = true;
             this.rdEffect.Checked = true;
-            this.rdEffect.Location = new System.Drawing.Point(4, 25);
+            this.rdEffect.Location = new System.Drawing.Point(14, 25);
             this.rdEffect.Name = "rdEffect";
-            this.rdEffect.Size = new System.Drawing.Size(64, 23);
+            this.rdEffect.Size = new System.Drawing.Size(124, 40);
             this.rdEffect.TabIndex = 5;
             this.rdEffect.TabStop = true;
             this.rdEffect.Text = ".effect";
@@ -72,9 +72,9 @@
             // rdMaterial
             // 
             this.rdMaterial.AutoSize = true;
-            this.rdMaterial.Location = new System.Drawing.Point(123, 25);
+            this.rdMaterial.Location = new System.Drawing.Point(133, 25);
             this.rdMaterial.Name = "rdMaterial";
-            this.rdMaterial.Size = new System.Drawing.Size(78, 23);
+            this.rdMaterial.Size = new System.Drawing.Size(157, 40);
             this.rdMaterial.TabIndex = 5;
             this.rdMaterial.Text = ".material";
             this.rdMaterial.UseVisualStyleBackColor = true;
@@ -82,19 +82,19 @@
             // rdPartical
             // 
             this.rdPartical.AutoSize = true;
-            this.rdPartical.Location = new System.Drawing.Point(244, 25);
+            this.rdPartical.Location = new System.Drawing.Point(254, 25);
             this.rdPartical.Name = "rdPartical";
-            this.rdPartical.Size = new System.Drawing.Size(75, 23);
+            this.rdPartical.Size = new System.Drawing.Size(150, 40);
             this.rdPartical.TabIndex = 5;
-            this.rdPartical.Text = ".partical";
+            this.rdPartical.Text = ".particle";
             this.rdPartical.UseVisualStyleBackColor = true;
             // 
             // rdSkill
             // 
             this.rdSkill.AutoSize = true;
-            this.rdSkill.Location = new System.Drawing.Point(360, 25);
+            this.rdSkill.Location = new System.Drawing.Point(370, 25);
             this.rdSkill.Name = "rdSkill";
-            this.rdSkill.Size = new System.Drawing.Size(54, 23);
+            this.rdSkill.Size = new System.Drawing.Size(108, 40);
             this.rdSkill.TabIndex = 5;
             this.rdSkill.Text = ".skill";
             this.rdSkill.UseVisualStyleBackColor = true;
@@ -105,15 +105,15 @@
             this.lbChooseFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChooseFile.Location = new System.Drawing.Point(7, 21);
             this.lbChooseFile.Name = "lbChooseFile";
-            this.lbChooseFile.Size = new System.Drawing.Size(206, 19);
+            this.lbChooseFile.Size = new System.Drawing.Size(420, 37);
             this.lbChooseFile.TabIndex = 1;
-            this.lbChooseFile.Text = "Open your folder contains files";
+            this.lbChooseFile.Text = "Select your folder contains files";
             // 
             // txtDirect
             // 
             this.txtDirect.Location = new System.Drawing.Point(11, 46);
             this.txtDirect.Name = "txtDirect";
-            this.txtDirect.Size = new System.Drawing.Size(337, 26);
+            this.txtDirect.Size = new System.Drawing.Size(337, 44);
             this.txtDirect.TabIndex = 0;
             // 
             // btnOpenFile
@@ -122,7 +122,7 @@
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(76, 26);
             this.btnOpenFile.TabIndex = 5;
-            this.btnOpenFile.Text = "OPEN";
+            this.btnOpenFile.Text = "SELECT";
             this.btnOpenFile.UseVisualStyleBackColor = true;
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
@@ -132,7 +132,7 @@
             this.rdNearly.Checked = true;
             this.rdNearly.Location = new System.Drawing.Point(84, 25);
             this.rdNearly.Name = "rdNearly";
-            this.rdNearly.Size = new System.Drawing.Size(68, 23);
+            this.rdNearly.Size = new System.Drawing.Size(132, 40);
             this.rdNearly.TabIndex = 5;
             this.rdNearly.TabStop = true;
             this.rdNearly.Text = "Nearly";
@@ -143,16 +143,16 @@
             this.rdExactly.AutoSize = true;
             this.rdExactly.Location = new System.Drawing.Point(310, 25);
             this.rdExactly.Name = "rdExactly";
-            this.rdExactly.Size = new System.Drawing.Size(71, 23);
+            this.rdExactly.Size = new System.Drawing.Size(142, 40);
             this.rdExactly.TabIndex = 5;
             this.rdExactly.Text = "Exactly";
             this.rdExactly.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(211, 445);
+            this.btnSearch.Location = new System.Drawing.Point(211, 423);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(104, 40);
+            this.btnSearch.Size = new System.Drawing.Size(104, 35);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "PROCESS";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -164,15 +164,15 @@
             this.lbCheckFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCheckFile.Location = new System.Drawing.Point(7, 81);
             this.lbCheckFile.Name = "lbCheckFile";
-            this.lbCheckFile.Size = new System.Drawing.Size(145, 19);
+            this.lbCheckFile.Size = new System.Drawing.Size(495, 37);
             this.lbCheckFile.TabIndex = 1;
-            this.lbCheckFile.Text = "Open your Check file";
+            this.lbCheckFile.Text = "Select your folder contains Check file";
             // 
             // txtDirectCheckFile
             // 
             this.txtDirectCheckFile.Location = new System.Drawing.Point(11, 106);
             this.txtDirectCheckFile.Name = "txtDirectCheckFile";
-            this.txtDirectCheckFile.Size = new System.Drawing.Size(337, 26);
+            this.txtDirectCheckFile.Size = new System.Drawing.Size(337, 44);
             this.txtDirectCheckFile.TabIndex = 1;
             // 
             // btnOpenCheckFile
@@ -181,7 +181,7 @@
             this.btnOpenCheckFile.Name = "btnOpenCheckFile";
             this.btnOpenCheckFile.Size = new System.Drawing.Size(76, 26);
             this.btnOpenCheckFile.TabIndex = 5;
-            this.btnOpenCheckFile.Text = "OPEN";
+            this.btnOpenCheckFile.Text = "SELECT";
             this.btnOpenCheckFile.UseVisualStyleBackColor = true;
             this.btnOpenCheckFile.Click += new System.EventHandler(this.btnOpenCheckFile_Click);
             // 
@@ -191,7 +191,7 @@
             this.lbInput.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInput.Location = new System.Drawing.Point(6, 205);
             this.lbInput.Name = "lbInput";
-            this.lbInput.Size = new System.Drawing.Size(128, 19);
+            this.lbInput.Size = new System.Drawing.Size(255, 37);
             this.lbInput.TabIndex = 1;
             this.lbInput.Text = "Type your word (s)";
             // 
@@ -199,7 +199,7 @@
             // 
             this.txtInput.Location = new System.Drawing.Point(11, 232);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(337, 26);
+            this.txtInput.Size = new System.Drawing.Size(337, 44);
             this.txtInput.TabIndex = 3;
             // 
             // lbFolder
@@ -208,15 +208,15 @@
             this.lbFolder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFolder.Location = new System.Drawing.Point(6, 142);
             this.lbFolder.Name = "lbFolder";
-            this.lbFolder.Size = new System.Drawing.Size(135, 19);
+            this.lbFolder.Size = new System.Drawing.Size(274, 37);
             this.lbFolder.TabIndex = 1;
-            this.lbFolder.Text = "Open folder to save";
+            this.lbFolder.Text = "Select folder to save";
             // 
             // txtDirectFolderSave
             // 
             this.txtDirectFolderSave.Location = new System.Drawing.Point(11, 168);
             this.txtDirectFolderSave.Name = "txtDirectFolderSave";
-            this.txtDirectFolderSave.Size = new System.Drawing.Size(337, 26);
+            this.txtDirectFolderSave.Size = new System.Drawing.Size(337, 44);
             this.txtDirectFolderSave.TabIndex = 2;
             // 
             // btnOpenFolderSave
@@ -225,7 +225,7 @@
             this.btnOpenFolderSave.Name = "btnOpenFolderSave";
             this.btnOpenFolderSave.Size = new System.Drawing.Size(76, 26);
             this.btnOpenFolderSave.TabIndex = 5;
-            this.btnOpenFolderSave.Text = "OPEN";
+            this.btnOpenFolderSave.Text = "SELECT";
             this.btnOpenFolderSave.UseVisualStyleBackColor = true;
             this.btnOpenFolderSave.Click += new System.EventHandler(this.btnOpenFolderSave_Click);
             // 
@@ -268,14 +268,14 @@
             this.grbMode.Controls.Add(this.rdNearly);
             this.grbMode.Location = new System.Drawing.Point(23, 352);
             this.grbMode.Name = "grbMode";
-            this.grbMode.Size = new System.Drawing.Size(467, 76);
+            this.grbMode.Size = new System.Drawing.Size(467, 65);
             this.grbMode.TabIndex = 9;
             this.grbMode.TabStop = false;
             this.grbMode.Text = "Choose mode";
             // 
             // prgBar
             // 
-            this.prgBar.Location = new System.Drawing.Point(23, 505);
+            this.prgBar.Location = new System.Drawing.Point(23, 468);
             this.prgBar.Name = "prgBar";
             this.prgBar.Size = new System.Drawing.Size(125, 18);
             this.prgBar.TabIndex = 10;
@@ -283,28 +283,30 @@
             // lbPercent
             // 
             this.lbPercent.AutoSize = true;
-            this.lbPercent.Location = new System.Drawing.Point(156, 504);
+            this.lbPercent.Location = new System.Drawing.Point(156, 467);
             this.lbPercent.Name = "lbPercent";
-            this.lbPercent.Size = new System.Drawing.Size(30, 19);
+            this.lbPercent.Size = new System.Drawing.Size(58, 36);
             this.lbPercent.TabIndex = 11;
             this.lbPercent.Text = "0%";
             // 
-            // lbProcessing
+            // rtbLog
             // 
-            this.lbProcessing.AutoSize = true;
-            this.lbProcessing.Location = new System.Drawing.Point(207, 504);
-            this.lbProcessing.Name = "lbProcessing";
-            this.lbProcessing.Size = new System.Drawing.Size(101, 19);
-            this.lbProcessing.TabIndex = 12;
-            this.lbProcessing.Text = "[Loading file...]";
+            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbLog.Location = new System.Drawing.Point(23, 502);
+            this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
+            this.rtbLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
+            this.rtbLog.Size = new System.Drawing.Size(467, 158);
+            this.rtbLog.TabIndex = 13;
+            this.rtbLog.Text = "";
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(514, 541);
-            this.Controls.Add(this.lbProcessing);
+            this.ClientSize = new System.Drawing.Size(514, 681);
+            this.Controls.Add(this.rtbLog);
             this.Controls.Add(this.lbPercent);
             this.Controls.Add(this.prgBar);
             this.Controls.Add(this.grbMode);
@@ -354,7 +356,7 @@
         private System.Windows.Forms.GroupBox grbMode;
         private System.Windows.Forms.ProgressBar prgBar;
         private System.Windows.Forms.Label lbPercent;
-        private System.Windows.Forms.Label lbProcessing;
+        private System.Windows.Forms.RichTextBox rtbLog;
     }
 }
 
