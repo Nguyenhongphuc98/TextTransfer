@@ -295,10 +295,10 @@
             this.rtbLog.Location = new System.Drawing.Point(23, 502);
             this.rtbLog.Name = "rtbLog";
             this.rtbLog.ReadOnly = true;
-            this.rtbLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.rtbLog.Size = new System.Drawing.Size(467, 158);
             this.rtbLog.TabIndex = 13;
             this.rtbLog.Text = "";
+            this.rtbLog.WordWrap = false;
             // 
             // frmMain
             // 

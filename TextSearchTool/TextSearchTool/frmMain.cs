@@ -21,6 +21,8 @@ namespace TextSearchTool
         private List<int> wordsFound = new List<int>();
         private List<string> result = new List<string>();
         private List<string> logFile = new List<string>();
+        private List<string> outFileContainStruct = new List<string>();
+        private List<string> allStructFromInput = new List<string>();
 
         public frmMain()
         {
@@ -118,9 +120,10 @@ namespace TextSearchTool
                             if (getExtension(nameFilesCheck[i]) == fileExtension)
                             {
                                 fileChecks.Add(new StreamReader(nameFilesCheck[i], Encoding.GetEncoding(936)));
-                                textOnAllFileChecks += (readFromFile(fileChecks[fileChecks.Count - 1], fileExtension) + " ");
+                                textOnAllFileChecks += (readFromFile(fileChecks[fileChecks.Count - 1], fileExtension, true) + "|");
                             }
                         }
+                        textOnAllFileChecks = textOnAllFileChecks.Remove(textOnAllFileChecks.Length - 1);
                         for (int i = 0; i < fileInputs.Count; i++)
                         {
                             processToFile(fileInputs[i], i, textOnAllFileChecks, words);
@@ -158,9 +161,8 @@ namespace TextSearchTool
 
         private void processToFile(StreamReader fileInput, int fileIndex , string textOnAllFileCheck, string[] wordInput)
         {
-            char[] div = { ' ', '\n' };
-            string[] textFromFileInput = readFromFile(fileInput, fileExtension).Split(div);
-            string[] textFromFileCheck = textOnAllFileCheck.Split(div);
+            string[] textFromFileInput = readFromFile(fileInput, fileExtension, false).Split('|');
+            string[] textFromFileCheck = textOnAllFileCheck.Split('|');
             // check in file need check
             rtbLog.Text += "\n[Loading file input...] index = [" + fileIndex.ToString() + "]";
             currLine++;
@@ -177,6 +179,7 @@ namespace TextSearchTool
                     {
                         if (textFromFileInput[j].Contains(wordInput[i]))
                         {
+                            outFileContainStruct.Add(allStructFromInput[j]);
                             result.Add(textFromFileInput[j]);
                             rtbLog.Text += ("\n\t\t" + textFromFileInput[j]);
                             currLine++;
@@ -187,6 +190,7 @@ namespace TextSearchTool
                     {
                         if (textFromFileInput[j] == wordInput[i])
                         {
+                            outFileContainStruct.Add(allStructFromInput[j]);
                             result.Add(textFromFileInput[j]);
                             rtbLog.Text += ("\n\t\t" + textFromFileInput[j]);
                             currLine++;
@@ -204,6 +208,7 @@ namespace TextSearchTool
                 {
                     if (result[j] == textFromFileCheck[i])
                     {
+                        outFileContainStruct.RemoveAt(j);
                         logFile.Add(result[j]);
                         result.RemoveAt(j);
                         wordsFoundButExist.Add(wordsFound[j]);
@@ -215,7 +220,7 @@ namespace TextSearchTool
             fileInput.Close();
         }
 
-        private string readFromFile(StreamReader streamReader, string extension)
+        private string readFromFile(StreamReader streamReader, string extension, bool isFileCheck)
         {
             string textOnFile = "";
             string curr = "";
@@ -223,26 +228,33 @@ namespace TextSearchTool
             {
                 if (curr.StartsWith(extension))
                 {
-                    textOnFile += (curr.Substring(extension.Length) + " ");
+                    textOnFile += (curr.Substring(extension.Length) + "|");
+                    if (!isFileCheck) allStructFromInput.Add(curr + "\n");
                 }
                 else if (extension == "particle")
                 {
                     if ((!curr.StartsWith("{")) && (!curr.StartsWith("}")) && (!curr.StartsWith("\t")))
                     {
-                        textOnFile += (curr + " ");
+                        textOnFile += (curr + "|");
+                        if (!isFileCheck) allStructFromInput.Add(curr + "\n");
                     }
                 }
+                else
+                {
+                    if (!isFileCheck && allStructFromInput.Count > 0)
+                    allStructFromInput[allStructFromInput.Count - 1] += (curr + "\n");
+                }
             }
-            return textOnFile;
+            return textOnFile.Remove(textOnFile.Length - 1);
         }
 
         private void exportToFile(StreamWriter fileOut, StreamWriter fileLog)
         {
             // export to file out
             updateProcInfo(80, "\n[Exporting file out...]");
-            for (int i = 0; i < result.Count; i++)
+            for (int i = 0; i < outFileContainStruct.Count; i++)
             {
-                fileOut.WriteLine(result[i]);
+                fileOut.WriteLine(outFileContainStruct[i]);
             }
             // export to file log
             updateProcInfo(90, "\n[Exporting file log...]");
