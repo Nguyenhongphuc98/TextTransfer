@@ -287,7 +287,7 @@ namespace TextSearchTool
                 int begin = rtbLog.GetFirstCharIndexFromLine(wordsFoundButExist[i] - 1);
                 string line = rtbLog.Lines[wordsFoundButExist[i] - 1];
                 rtbLog.Select(begin, line.Length);
-                rtbLog.SelectionColor = Color.Yellow;
+                rtbLog.SelectionColor = Color.Orange;
             }
             for (int i = 0; i < wordsFound.Count; i++)
             {
