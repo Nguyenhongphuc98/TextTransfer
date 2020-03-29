@@ -109,7 +109,7 @@ namespace TextSearchTool
                         {
                             if (getExtension(nameFilesInput[i]) == fileExtension)
                             {
-                                fileInputs.Add(new StreamReader(nameFilesInput[i]));
+                                fileInputs.Add(new StreamReader(nameFilesInput[i], Encoding.GetEncoding(936)));
                             }
                         }
                         string textOnAllFileChecks = "";
@@ -117,7 +117,7 @@ namespace TextSearchTool
                         {
                             if (getExtension(nameFilesCheck[i]) == fileExtension)
                             {
-                                fileChecks.Add(new StreamReader(nameFilesCheck[i]));
+                                fileChecks.Add(new StreamReader(nameFilesCheck[i], Encoding.GetEncoding(936)));
                                 textOnAllFileChecks += (readFromFile(fileChecks[fileChecks.Count - 1], fileExtension) + " ");
                             }
                         }
