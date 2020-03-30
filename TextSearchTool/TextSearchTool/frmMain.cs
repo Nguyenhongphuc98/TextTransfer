@@ -228,7 +228,7 @@ namespace TextSearchTool
             {
                 if (curr.StartsWith(extension))
                 {
-                    textOnFile += (curr.Substring(extension.Length) + "|");
+                    textOnFile += (curr.Substring(extension.Length + 1) + "|");
                     if (!isFileCheck) allStructFromInput.Add(curr + "\n");
                 }
                 else if (extension == "particle")
