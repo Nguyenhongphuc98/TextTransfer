@@ -75,12 +75,27 @@ namespace TextSearchTool
             wordsNotFound.Clear();
             result.Clear();
             logFile.Clear();
+            outFileContainStruct.Clear();
+            allStructFromInput.Clear();
             string[] words = txtInput.Text.Split('|');
             updateProcInfo(5, "[Loading text input...]");
             rtbLog.Text = "[Loading text input...]";
             currLine = 1;
-            bool existFolderInput = Directory.Exists(txtDirect.Text);
-            bool exitsFolderCheck = Directory.Exists(txtDirectCheckFile.Text);
+            string directOfInput = "", directOfCheck = "", directOfOut = "";
+            if (tabSelect.SelectedTab == tabMultiSel)
+            {
+                directOfInput = txtDirect.Text;
+                directOfCheck = txtDirectCheckFile.Text;
+                directOfOut = txtDirectFolderSave.Text;
+            }
+            else
+            {
+                directOfInput = txtSelectAll.Text + @"\In";
+                directOfCheck = txtSelectAll.Text + @"\Check";
+                directOfOut = txtSelectAll.Text + @"\Out";
+            }
+            bool existFolderInput = Directory.Exists(directOfInput);
+            bool exitsFolderCheck = Directory.Exists(directOfCheck);
             if (existFolderInput)
             {
                 if (exitsFolderCheck)
@@ -96,17 +111,22 @@ namespace TextSearchTool
                         List<StreamReader> fileChecks = new List<StreamReader>();
                         
                         StreamWriter fileOut = null;
-                        if (File.Exists(txtDirectFolderSave.Text + @"\out." + fileExtension))
-                            fileOut = new StreamWriter(txtDirectFolderSave.Text + @"\out." + fileExtension);
+                        if (File.Exists(directOfOut + @"\out." + fileExtension))
+                            fileOut = new StreamWriter(directOfOut + @"\out." + fileExtension);
                         else
-                            fileOut = File.CreateText(txtDirectFolderSave.Text + @"\out." + fileExtension);
+                            fileOut = File.CreateText(directOfOut + @"\out." + fileExtension);
                         StreamWriter fileLog = null;
-                        if (File.Exists(txtDirectFolderSave.Text + @"\log." + fileExtension))
-                            fileLog = new StreamWriter(txtDirectFolderSave.Text + @"\log." + fileExtension);
+                        if (File.Exists(directOfOut + @"\log." + fileExtension))
+                            fileLog = new StreamWriter(directOfOut + @"\log." + fileExtension);
                         else
-                            fileLog = File.CreateText(txtDirectFolderSave.Text + @"\log." + fileExtension);
-                        string[] nameFilesInput = Directory.GetFiles(txtDirect.Text);
-                        string[] nameFilesCheck = Directory.GetFiles(txtDirectCheckFile.Text);
+                            fileLog = File.CreateText(directOfOut + @"\log." + fileExtension);
+                        StreamWriter fileNewIn = null;
+                        if (File.Exists(directOfOut + @"\newIn." + fileExtension))
+                            fileNewIn = new StreamWriter(directOfOut + @"\newIn." + fileExtension);
+                        else
+                            fileNewIn = File.CreateText(directOfOut + @"\newIn." + fileExtension);
+                        string[] nameFilesInput = Directory.GetFiles(directOfInput);
+                        string[] nameFilesCheck = Directory.GetFiles(directOfCheck);
                         for (int i = 0; i < nameFilesInput.Length; i++)
                         {
                             if (getExtension(nameFilesInput[i]) == fileExtension)
@@ -131,17 +151,18 @@ namespace TextSearchTool
                         makeColorWords();
                         if (result.Count > 0 || logFile.Count > 0)
                         {
-                            exportToFile(fileOut, fileLog);
+                            exportToFile(fileOut, fileLog, fileNewIn);
                             DialogResult dlr = MessageBox.Show("Do you want to open file out?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (dlr == DialogResult.Yes)
                             {
-                                ProcessStartInfo process = new ProcessStartInfo(txtDirectFolderSave.Text);
+                                ProcessStartInfo process = new ProcessStartInfo(directOfOut);
                                 Process.Start(process);
                             }
                         }
                         else updateProcInfo(100, "\n[Done]");
                         fileOut.Close();
                         fileLog.Close();
+                        fileNewIn.Close();
                     }
                     else
                     {
@@ -238,6 +259,11 @@ namespace TextSearchTool
                         textOnFile += (curr + "|");
                         if (!isFileCheck) allStructFromInput.Add(curr + "\n");
                     }
+                    else
+                    {
+                        if (!isFileCheck && allStructFromInput.Count > 0)
+                            allStructFromInput[allStructFromInput.Count - 1] += (curr + "\n");
+                    }
                 }
                 else
                 {
@@ -248,7 +274,7 @@ namespace TextSearchTool
             return textOnFile.Remove(textOnFile.Length - 1);
         }
 
-        private void exportToFile(StreamWriter fileOut, StreamWriter fileLog)
+        private void exportToFile(StreamWriter fileOut, StreamWriter fileLog, StreamWriter fileNewIn)
         {
             // export to file out
             updateProcInfo(80, "\n[Exporting file out...]");
@@ -261,6 +287,20 @@ namespace TextSearchTool
             for (int i = 0; i < logFile.Count; i++)
             {
                 fileLog.WriteLine(logFile[i]);
+            }
+            // export to file newIn
+            for (int i = 0; i < allStructFromInput.Count; i++)
+            {
+                bool flag = true;
+                for (int j = 0; j < outFileContainStruct.Count; j++)
+                {
+                    if (allStructFromInput[i] == outFileContainStruct[j])
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) fileNewIn.WriteLine(allStructFromInput[i]);
             }
             updateProcInfo(100, "\n[Done]");
         }
@@ -307,6 +347,16 @@ namespace TextSearchTool
                 string line = rtbLog.Lines[wordsFound[i] - 1];
                 rtbLog.Select(begin, line.Length);
                 rtbLog.SelectionColor = Color.Green;
+            }
+        }
+
+        private void btnSelectAll_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            DialogResult dialogResult = folderBrowserDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                txtSelectAll.Text = folderBrowserDialog.SelectedPath;
             }
         }
     }

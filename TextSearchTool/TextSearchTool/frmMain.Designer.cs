@@ -41,20 +41,29 @@
             this.lbCheckFile = new System.Windows.Forms.Label();
             this.txtDirectCheckFile = new System.Windows.Forms.TextBox();
             this.btnOpenCheckFile = new System.Windows.Forms.Button();
-            this.lbInput = new System.Windows.Forms.Label();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.lbFolder = new System.Windows.Forms.Label();
             this.txtDirectFolderSave = new System.Windows.Forms.TextBox();
             this.btnOpenFolderSave = new System.Windows.Forms.Button();
             this.grbExtension = new System.Windows.Forms.GroupBox();
-            this.grbFileAndFolder = new System.Windows.Forms.GroupBox();
             this.grbMode = new System.Windows.Forms.GroupBox();
             this.prgBar = new System.Windows.Forms.ProgressBar();
             this.lbPercent = new System.Windows.Forms.Label();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
+            this.tabSelect = new System.Windows.Forms.TabControl();
+            this.tabMultiSel = new System.Windows.Forms.TabPage();
+            this.tabSelectAll = new System.Windows.Forms.TabPage();
+            this.lbHD = new System.Windows.Forms.Label();
+            this.txtSelectAll = new System.Windows.Forms.TextBox();
+            this.lbSelectAll = new System.Windows.Forms.Label();
+            this.btnSelectAll = new System.Windows.Forms.Button();
+            this.grbInput = new System.Windows.Forms.GroupBox();
             this.grbExtension.SuspendLayout();
-            this.grbFileAndFolder.SuspendLayout();
             this.grbMode.SuspendLayout();
+            this.tabSelect.SuspendLayout();
+            this.tabMultiSel.SuspendLayout();
+            this.tabSelectAll.SuspendLayout();
+            this.grbInput.SuspendLayout();
             this.SuspendLayout();
             // 
             // rdEffect
@@ -63,7 +72,7 @@
             this.rdEffect.Checked = true;
             this.rdEffect.Location = new System.Drawing.Point(14, 25);
             this.rdEffect.Name = "rdEffect";
-            this.rdEffect.Size = new System.Drawing.Size(124, 40);
+            this.rdEffect.Size = new System.Drawing.Size(64, 23);
             this.rdEffect.TabIndex = 5;
             this.rdEffect.TabStop = true;
             this.rdEffect.Text = ".effect";
@@ -74,7 +83,7 @@
             this.rdMaterial.AutoSize = true;
             this.rdMaterial.Location = new System.Drawing.Point(133, 25);
             this.rdMaterial.Name = "rdMaterial";
-            this.rdMaterial.Size = new System.Drawing.Size(157, 40);
+            this.rdMaterial.Size = new System.Drawing.Size(78, 23);
             this.rdMaterial.TabIndex = 5;
             this.rdMaterial.Text = ".material";
             this.rdMaterial.UseVisualStyleBackColor = true;
@@ -84,7 +93,7 @@
             this.rdPartical.AutoSize = true;
             this.rdPartical.Location = new System.Drawing.Point(254, 25);
             this.rdPartical.Name = "rdPartical";
-            this.rdPartical.Size = new System.Drawing.Size(150, 40);
+            this.rdPartical.Size = new System.Drawing.Size(75, 23);
             this.rdPartical.TabIndex = 5;
             this.rdPartical.Text = ".particle";
             this.rdPartical.UseVisualStyleBackColor = true;
@@ -94,7 +103,7 @@
             this.rdSkill.AutoSize = true;
             this.rdSkill.Location = new System.Drawing.Point(370, 25);
             this.rdSkill.Name = "rdSkill";
-            this.rdSkill.Size = new System.Drawing.Size(108, 40);
+            this.rdSkill.Size = new System.Drawing.Size(54, 23);
             this.rdSkill.TabIndex = 5;
             this.rdSkill.Text = ".skill";
             this.rdSkill.UseVisualStyleBackColor = true;
@@ -103,22 +112,22 @@
             // 
             this.lbChooseFile.AutoSize = true;
             this.lbChooseFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChooseFile.Location = new System.Drawing.Point(7, 21);
+            this.lbChooseFile.Location = new System.Drawing.Point(6, 3);
             this.lbChooseFile.Name = "lbChooseFile";
-            this.lbChooseFile.Size = new System.Drawing.Size(420, 37);
+            this.lbChooseFile.Size = new System.Drawing.Size(210, 19);
             this.lbChooseFile.TabIndex = 1;
             this.lbChooseFile.Text = "Select your folder contains files";
             // 
             // txtDirect
             // 
-            this.txtDirect.Location = new System.Drawing.Point(11, 46);
+            this.txtDirect.Location = new System.Drawing.Point(10, 28);
             this.txtDirect.Name = "txtDirect";
-            this.txtDirect.Size = new System.Drawing.Size(337, 44);
+            this.txtDirect.Size = new System.Drawing.Size(337, 26);
             this.txtDirect.TabIndex = 0;
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(370, 45);
+            this.btnOpenFile.Location = new System.Drawing.Point(369, 28);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(76, 26);
             this.btnOpenFile.TabIndex = 5;
@@ -132,7 +141,7 @@
             this.rdNearly.Checked = true;
             this.rdNearly.Location = new System.Drawing.Point(84, 25);
             this.rdNearly.Name = "rdNearly";
-            this.rdNearly.Size = new System.Drawing.Size(132, 40);
+            this.rdNearly.Size = new System.Drawing.Size(68, 23);
             this.rdNearly.TabIndex = 5;
             this.rdNearly.TabStop = true;
             this.rdNearly.Text = "Nearly";
@@ -143,7 +152,7 @@
             this.rdExactly.AutoSize = true;
             this.rdExactly.Location = new System.Drawing.Point(310, 25);
             this.rdExactly.Name = "rdExactly";
-            this.rdExactly.Size = new System.Drawing.Size(142, 40);
+            this.rdExactly.Size = new System.Drawing.Size(71, 23);
             this.rdExactly.TabIndex = 5;
             this.rdExactly.Text = "Exactly";
             this.rdExactly.UseVisualStyleBackColor = true;
@@ -162,22 +171,22 @@
             // 
             this.lbCheckFile.AutoSize = true;
             this.lbCheckFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheckFile.Location = new System.Drawing.Point(7, 81);
+            this.lbCheckFile.Location = new System.Drawing.Point(6, 60);
             this.lbCheckFile.Name = "lbCheckFile";
-            this.lbCheckFile.Size = new System.Drawing.Size(495, 37);
+            this.lbCheckFile.Size = new System.Drawing.Size(249, 19);
             this.lbCheckFile.TabIndex = 1;
             this.lbCheckFile.Text = "Select your folder contains Check file";
             // 
             // txtDirectCheckFile
             // 
-            this.txtDirectCheckFile.Location = new System.Drawing.Point(11, 106);
+            this.txtDirectCheckFile.Location = new System.Drawing.Point(10, 85);
             this.txtDirectCheckFile.Name = "txtDirectCheckFile";
-            this.txtDirectCheckFile.Size = new System.Drawing.Size(337, 44);
+            this.txtDirectCheckFile.Size = new System.Drawing.Size(337, 26);
             this.txtDirectCheckFile.TabIndex = 1;
             // 
             // btnOpenCheckFile
             // 
-            this.btnOpenCheckFile.Location = new System.Drawing.Point(370, 106);
+            this.btnOpenCheckFile.Location = new System.Drawing.Point(369, 85);
             this.btnOpenCheckFile.Name = "btnOpenCheckFile";
             this.btnOpenCheckFile.Size = new System.Drawing.Size(76, 26);
             this.btnOpenCheckFile.TabIndex = 5;
@@ -185,43 +194,33 @@
             this.btnOpenCheckFile.UseVisualStyleBackColor = true;
             this.btnOpenCheckFile.Click += new System.EventHandler(this.btnOpenCheckFile_Click);
             // 
-            // lbInput
-            // 
-            this.lbInput.AutoSize = true;
-            this.lbInput.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInput.Location = new System.Drawing.Point(6, 205);
-            this.lbInput.Name = "lbInput";
-            this.lbInput.Size = new System.Drawing.Size(255, 37);
-            this.lbInput.TabIndex = 1;
-            this.lbInput.Text = "Type your word (s)";
-            // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(11, 232);
+            this.txtInput.Location = new System.Drawing.Point(14, 25);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(337, 44);
+            this.txtInput.Size = new System.Drawing.Size(337, 26);
             this.txtInput.TabIndex = 3;
             // 
             // lbFolder
             // 
             this.lbFolder.AutoSize = true;
             this.lbFolder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFolder.Location = new System.Drawing.Point(6, 142);
+            this.lbFolder.Location = new System.Drawing.Point(5, 119);
             this.lbFolder.Name = "lbFolder";
-            this.lbFolder.Size = new System.Drawing.Size(274, 37);
+            this.lbFolder.Size = new System.Drawing.Size(139, 19);
             this.lbFolder.TabIndex = 1;
             this.lbFolder.Text = "Select folder to save";
             // 
             // txtDirectFolderSave
             // 
-            this.txtDirectFolderSave.Location = new System.Drawing.Point(11, 168);
+            this.txtDirectFolderSave.Location = new System.Drawing.Point(10, 143);
             this.txtDirectFolderSave.Name = "txtDirectFolderSave";
-            this.txtDirectFolderSave.Size = new System.Drawing.Size(337, 44);
+            this.txtDirectFolderSave.Size = new System.Drawing.Size(337, 26);
             this.txtDirectFolderSave.TabIndex = 2;
             // 
             // btnOpenFolderSave
             // 
-            this.btnOpenFolderSave.Location = new System.Drawing.Point(370, 168);
+            this.btnOpenFolderSave.Location = new System.Drawing.Point(369, 143);
             this.btnOpenFolderSave.Name = "btnOpenFolderSave";
             this.btnOpenFolderSave.Size = new System.Drawing.Size(76, 26);
             this.btnOpenFolderSave.TabIndex = 5;
@@ -241,26 +240,6 @@
             this.grbExtension.TabIndex = 7;
             this.grbExtension.TabStop = false;
             this.grbExtension.Text = "Select extension of your file";
-            // 
-            // grbFileAndFolder
-            // 
-            this.grbFileAndFolder.Controls.Add(this.btnOpenFile);
-            this.grbFileAndFolder.Controls.Add(this.lbChooseFile);
-            this.grbFileAndFolder.Controls.Add(this.txtDirect);
-            this.grbFileAndFolder.Controls.Add(this.txtInput);
-            this.grbFileAndFolder.Controls.Add(this.btnOpenFolderSave);
-            this.grbFileAndFolder.Controls.Add(this.lbInput);
-            this.grbFileAndFolder.Controls.Add(this.btnOpenCheckFile);
-            this.grbFileAndFolder.Controls.Add(this.lbCheckFile);
-            this.grbFileAndFolder.Controls.Add(this.txtDirectFolderSave);
-            this.grbFileAndFolder.Controls.Add(this.txtDirectCheckFile);
-            this.grbFileAndFolder.Controls.Add(this.lbFolder);
-            this.grbFileAndFolder.Location = new System.Drawing.Point(23, 78);
-            this.grbFileAndFolder.Name = "grbFileAndFolder";
-            this.grbFileAndFolder.Size = new System.Drawing.Size(467, 268);
-            this.grbFileAndFolder.TabIndex = 0;
-            this.grbFileAndFolder.TabStop = false;
-            this.grbFileAndFolder.Text = "File (s) and folder (s)";
             // 
             // grbMode
             // 
@@ -285,7 +264,7 @@
             this.lbPercent.AutoSize = true;
             this.lbPercent.Location = new System.Drawing.Point(156, 467);
             this.lbPercent.Name = "lbPercent";
-            this.lbPercent.Size = new System.Drawing.Size(58, 36);
+            this.lbPercent.Size = new System.Drawing.Size(30, 19);
             this.lbPercent.TabIndex = 11;
             this.lbPercent.Text = "0%";
             // 
@@ -300,17 +279,108 @@
             this.rtbLog.Text = "";
             this.rtbLog.WordWrap = false;
             // 
+            // tabSelect
+            // 
+            this.tabSelect.Controls.Add(this.tabMultiSel);
+            this.tabSelect.Controls.Add(this.tabSelectAll);
+            this.tabSelect.Location = new System.Drawing.Point(23, 78);
+            this.tabSelect.Name = "tabSelect";
+            this.tabSelect.SelectedIndex = 0;
+            this.tabSelect.Size = new System.Drawing.Size(471, 213);
+            this.tabSelect.TabIndex = 14;
+            // 
+            // tabMultiSel
+            // 
+            this.tabMultiSel.BackColor = System.Drawing.SystemColors.Control;
+            this.tabMultiSel.Controls.Add(this.txtDirectFolderSave);
+            this.tabMultiSel.Controls.Add(this.btnOpenFile);
+            this.tabMultiSel.Controls.Add(this.lbFolder);
+            this.tabMultiSel.Controls.Add(this.txtDirectCheckFile);
+            this.tabMultiSel.Controls.Add(this.lbChooseFile);
+            this.tabMultiSel.Controls.Add(this.lbCheckFile);
+            this.tabMultiSel.Controls.Add(this.btnOpenCheckFile);
+            this.tabMultiSel.Controls.Add(this.txtDirect);
+            this.tabMultiSel.Controls.Add(this.btnOpenFolderSave);
+            this.tabMultiSel.Location = new System.Drawing.Point(4, 28);
+            this.tabMultiSel.Name = "tabMultiSel";
+            this.tabMultiSel.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMultiSel.Size = new System.Drawing.Size(463, 181);
+            this.tabMultiSel.TabIndex = 0;
+            this.tabMultiSel.Text = "Select 3 folders";
+            // 
+            // tabSelectAll
+            // 
+            this.tabSelectAll.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSelectAll.Controls.Add(this.btnSelectAll);
+            this.tabSelectAll.Controls.Add(this.lbSelectAll);
+            this.tabSelectAll.Controls.Add(this.txtSelectAll);
+            this.tabSelectAll.Controls.Add(this.lbHD);
+            this.tabSelectAll.Location = new System.Drawing.Point(4, 28);
+            this.tabSelectAll.Name = "tabSelectAll";
+            this.tabSelectAll.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSelectAll.Size = new System.Drawing.Size(463, 181);
+            this.tabSelectAll.TabIndex = 1;
+            this.tabSelectAll.Text = "Select all";
+            // 
+            // lbHD
+            // 
+            this.lbHD.AutoSize = true;
+            this.lbHD.Location = new System.Drawing.Point(6, 12);
+            this.lbHD.Name = "lbHD";
+            this.lbHD.Size = new System.Drawing.Size(283, 19);
+            this.lbHD.TabIndex = 0;
+            this.lbHD.Text = "Make sure the folder contains In, Check, Out";
+            // 
+            // txtSelectAll
+            // 
+            this.txtSelectAll.Location = new System.Drawing.Point(10, 94);
+            this.txtSelectAll.Name = "txtSelectAll";
+            this.txtSelectAll.Size = new System.Drawing.Size(337, 26);
+            this.txtSelectAll.TabIndex = 1;
+            // 
+            // lbSelectAll
+            // 
+            this.lbSelectAll.AutoSize = true;
+            this.lbSelectAll.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSelectAll.Location = new System.Drawing.Point(6, 63);
+            this.lbSelectAll.Name = "lbSelectAll";
+            this.lbSelectAll.Size = new System.Drawing.Size(182, 19);
+            this.lbSelectAll.TabIndex = 2;
+            this.lbSelectAll.Text = "Select your file contains all";
+            // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Location = new System.Drawing.Point(366, 94);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(76, 26);
+            this.btnSelectAll.TabIndex = 3;
+            this.btnSelectAll.Text = "SELECT";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
+            // 
+            // grbInput
+            // 
+            this.grbInput.Controls.Add(this.txtInput);
+            this.grbInput.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInput.Location = new System.Drawing.Point(23, 289);
+            this.grbInput.Name = "grbInput";
+            this.grbInput.Size = new System.Drawing.Size(467, 61);
+            this.grbInput.TabIndex = 15;
+            this.grbInput.TabStop = false;
+            this.grbInput.Text = "Type your word (s)";
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(514, 681);
+            this.Controls.Add(this.grbInput);
+            this.Controls.Add(this.tabSelect);
             this.Controls.Add(this.rtbLog);
             this.Controls.Add(this.lbPercent);
             this.Controls.Add(this.prgBar);
             this.Controls.Add(this.grbMode);
-            this.Controls.Add(this.grbFileAndFolder);
             this.Controls.Add(this.grbExtension);
             this.Controls.Add(this.btnSearch);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -322,10 +392,15 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grbExtension.ResumeLayout(false);
             this.grbExtension.PerformLayout();
-            this.grbFileAndFolder.ResumeLayout(false);
-            this.grbFileAndFolder.PerformLayout();
             this.grbMode.ResumeLayout(false);
             this.grbMode.PerformLayout();
+            this.tabSelect.ResumeLayout(false);
+            this.tabMultiSel.ResumeLayout(false);
+            this.tabMultiSel.PerformLayout();
+            this.tabSelectAll.ResumeLayout(false);
+            this.tabSelectAll.PerformLayout();
+            this.grbInput.ResumeLayout(false);
+            this.grbInput.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,17 +421,23 @@
         private System.Windows.Forms.Label lbCheckFile;
         private System.Windows.Forms.TextBox txtDirectCheckFile;
         private System.Windows.Forms.Button btnOpenCheckFile;
-        private System.Windows.Forms.Label lbInput;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Label lbFolder;
         private System.Windows.Forms.TextBox txtDirectFolderSave;
         private System.Windows.Forms.Button btnOpenFolderSave;
         private System.Windows.Forms.GroupBox grbExtension;
-        private System.Windows.Forms.GroupBox grbFileAndFolder;
         private System.Windows.Forms.GroupBox grbMode;
         private System.Windows.Forms.ProgressBar prgBar;
         private System.Windows.Forms.Label lbPercent;
         private System.Windows.Forms.RichTextBox rtbLog;
+        private System.Windows.Forms.TabControl tabSelect;
+        private System.Windows.Forms.TabPage tabMultiSel;
+        private System.Windows.Forms.TabPage tabSelectAll;
+        private System.Windows.Forms.Button btnSelectAll;
+        private System.Windows.Forms.Label lbSelectAll;
+        private System.Windows.Forms.TextBox txtSelectAll;
+        private System.Windows.Forms.Label lbHD;
+        private System.Windows.Forms.GroupBox grbInput;
     }
 }
 
