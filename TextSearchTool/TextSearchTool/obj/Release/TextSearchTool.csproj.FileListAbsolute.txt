@@ -1,0 +1,9 @@
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\bin\Release\TextSearchTool.exe.config
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\bin\Release\TextSearchTool.exe
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\bin\Release\TextSearchTool.pdb
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Release\TextSearchTool.csprojAssemblyReference.cache
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Release\TextSearchTool.frmMain.resources
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Release\TextSearchTool.Properties.Resources.resources
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Release\TextSearchTool.csproj.GenerateResource.cache
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Release\TextSearchTool.exe
+C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Release\TextSearchTool.pdb

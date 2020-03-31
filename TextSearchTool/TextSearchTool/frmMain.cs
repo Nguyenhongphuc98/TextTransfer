@@ -359,5 +359,29 @@ namespace TextSearchTool
                 txtSelectAll.Text = folderBrowserDialog.SelectedPath;
             }
         }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            currLine = 0;
+            fileExtension = "";
+            wordsFoundButExist.Clear();
+            wordsNotFound.Clear();
+            wordsFound.Clear();
+            result.Clear();
+            logFile.Clear();
+            outFileContainStruct.Clear();
+            allStructFromInput.Clear();
+
+            txtDirect.Text = "";
+            txtDirectCheckFile.Text = "";
+            txtDirectFolderSave.Text = "";
+            txtSelectAll.Text = "";
+            txtInput.Text = "";
+
+            prgBar.Value = 0;
+            lbPercent.Text = "0%";
+
+            rtbLog.Text = "";
+        }
     }
 }
