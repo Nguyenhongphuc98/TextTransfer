@@ -249,7 +249,18 @@ namespace TextSearchTool
             {
                 if (curr.StartsWith(extension))
                 {
-                    textOnFile += (curr.Substring(extension.Length + 1) + "|");
+                    int indexOfDoubleDot = curr.IndexOf(':');
+                    while (indexOfDoubleDot > 0 && curr[indexOfDoubleDot - 1] == ' ')
+                        indexOfDoubleDot--;
+                    int start = extension.Length + 1;
+                    while (curr[start] == ' ')
+                        start++;
+                    if (indexOfDoubleDot > 0)
+                    {
+                        textOnFile += (curr.Substring(start, indexOfDoubleDot - start) + "|");
+                    }
+                    else
+                        textOnFile += (curr.Substring(extension.Length + 1) + "|");
                     if (!isFileCheck) allStructFromInput.Add(curr + "\n");
                 }
                 else if (extension == "particle")

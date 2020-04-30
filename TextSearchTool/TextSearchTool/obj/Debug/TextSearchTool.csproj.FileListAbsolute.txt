@@ -16,3 +16,13 @@ C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearc
 C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.csproj.GenerateResource.cache
 C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.exe
 C:\Users\Nguyen Hong Phuc\Downloads\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.pdb
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\bin\Debug\TextSearchTool.exe.config
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\bin\Debug\TextSearchTool.exe
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\bin\Debug\TextSearchTool.pdb
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.csprojAssemblyReference.cache
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.frmMain.resources
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.Properties.Resources.resources
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.csproj.GenerateResource.cache
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.csproj.CoreCompileInputs.cache
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.exe
+C:\Users\XuanTung\Downloads\TextTransfer-master\TextTransfer-master\TextSearchTool\TextSearchTool\obj\Debug\TextSearchTool.pdb
