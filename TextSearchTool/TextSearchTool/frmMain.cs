@@ -265,7 +265,7 @@ namespace TextSearchTool
                 }
                 else if (extension == "particle")
                 {
-                    if ((!curr.StartsWith("{")) && (!curr.StartsWith("}")) && (!curr.StartsWith("\t")))
+                    if ((!curr.StartsWith("{")) && (!curr.StartsWith("}")) && (!curr.StartsWith("\t")) && (curr != ""))
                     {
                         textOnFile += (curr + "|");
                         if (!isFileCheck) allStructFromInput.Add(curr + "\n");
